@@ -1,18 +1,18 @@
 <ul>
     <li>
-        <a href="javascript:;" onclick="router.goToPage('/')">Home</a>
+        <a href="javascript:;" onclick="corejs.router.goToPage('/')">Home</a>
     </li>
     <li>
-        <a href="javascript:;" onclick="router.goToPage('/tasks')">Tasks</a>
+        <a href="javascript:;" onclick="corejs.router.goToPage('/tasks')">Tasks</a>
     </li>
 </ul>
 
-<h1>Tasks</h1>
+<h1>Tasks (VN Province List)</h1>
 
 <ul>
     <% tasks.forEach(function(task) { %>
         <li>
-            <%= task.title %>
+            <%= task.name %>
         </li>
     <% }); %>
 </ul>

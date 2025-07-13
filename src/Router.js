@@ -5,21 +5,54 @@ export const Router = class {
     constructor() {
         this.routes = {
             '/': () => {
-                HomeController.index();
+                return HomeController.index();
             },
             '/tasks': () => {
-                TaskController.index();
+                return TaskController.index();
+            },
+            '/tasks/add-form': () => {
+                return TaskController.addForm();
             },
         }
     }
 
     init() {
         const path = window.location.pathname
-        this.routes[path]?.()
+        this.render(path, corejs.appContainer)
     }
 
     goToPage(path) {
         window.history.pushState({}, '', path);
-        this.routes[path]?.()
+        this.render(path, corejs.appContainer)
     }
+
+    render(path, container) {
+        this.routes[path]?.().then(html => {
+            renderHTMLWithScripts(container, html);
+        });
+    }
+}
+
+//
+function renderHTMLWithScripts(container, html) {
+  // 1. Set HTML content
+  container.innerHTML = html;
+
+  // 2. Find all script tags in the inserted content
+  const scripts = container.querySelectorAll('script');
+
+  scripts.forEach((oldScript) => {
+    const newScript = document.createElement('script');
+    
+    // Copy script attributes (src, type, etc.)
+    [...oldScript.attributes].forEach(attr =>
+      newScript.setAttribute(attr.name, attr.value)
+    );
+    
+    // Copy script content (for inline scripts)
+    newScript.textContent = oldScript.textContent;
+
+    // Replace old script with new one to trigger execution
+    oldScript.parentNode.replaceChild(newScript, oldScript);
+  });
 }

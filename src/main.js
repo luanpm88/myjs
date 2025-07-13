@@ -1,12 +1,17 @@
 import { Router } from './router.js'
-window.router = new Router();
+import { view } from './view.js'
+
+window.corejs = {}
+window.corejs.router = new Router()
+window.corejs.view = view
+window.corejs.appContainer = document.getElementById('app');
 
 document.addEventListener('DOMContentLoaded', () => {
   // On first load
-  router.init();
+  corejs.router.init();
 
   // Listen for back/forward button
   window.addEventListener('popstate', () => {
-    router.goToPage(window.location.pathname); // re-render the view
+    corejs.router.goToPage(window.location.pathname); // re-render the view
   });
 })
