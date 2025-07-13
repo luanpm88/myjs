@@ -1,13 +1,10 @@
 # Todo App
 
-A simple todo application for managing tasks.
+A simple JS framework for web app front-end.
 
-## Features
+## Quick Guide
 
-- View tasks
-- Navigate between Home and Tasks pages
-
-## Getting Started
+### 0. Install and Run
 
 1. Clone the repository.
 2. Install dependencies:
@@ -19,15 +16,35 @@ A simple todo application for managing tasks.
    npm run dev
    ```
 
+---
+
+### Using the Router
+
+- **Navigate to a full page route:**
+  ```js
+  window.corejs.router.goToPage('/tasks');
+  ```
+- **Render a route into a specific container:**
+  ```js
+  window.corejs.router.render('/tasks', document.getElementById('main'));
+  ```
+
+---
+
 ## Project Structure
 
-- `src/` - Source code
-- `src/Router` - App Router
-- `src/controllers/` - Contains controller files
-- `src/services/` - Contains service files
-- `src/views/` - Contains view files using EJS markup language
+- `src/main.js` - Application entry point
+- `src/router.js` - App Router logic and route registration
+- `src/view.js` - App View core functions
+- `src/controllers/` - Controller files (e.g., `home.js`, `tasks.js`)
+- `src/services/` - Service files (e.g., `todo.js`)
+- `src/views/` - EJS view templates (e.g., `home.ejs`, `tasks.ejs`)
 
+---
 
+## Reference
+
+Please refer to the current sample code in the repository for understanding how it works. The sample code itself provides a simple and clear example of usage.
 
 ## License
 
