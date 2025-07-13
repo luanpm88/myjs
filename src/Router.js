@@ -19,6 +19,7 @@ export const Router = class {
     }
 
     goToPage(path) {
-        window.location.pathname = path
+        window.history.pushState({}, '', path);
+        this.routes[path]?.()
     }
 }
