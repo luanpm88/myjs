@@ -42,6 +42,7 @@ A simple JS framework for web app front-end.
   ```
 
 - **Run a controller action directly with request data:**
+
    Route defined:
    ```js
    // HTML routes
