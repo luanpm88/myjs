@@ -47,12 +47,19 @@ A simple JS framework for web app front-end.
 
 To include a view component dynamically inside your EJS template:
 
-1. Add a placeholder in your EJS file:
+1. Create the component file inside `public/views/component/` and insert the component’s HTML, for example `header.ejs`:
+   ```html
+   <header>
+     <h1>App Header</h1>
+   </header>
+   ```
+
+2. In any other EJS view where you want to include the header, add a placeholder like this:
    ```html
    <div id="Header"></div>
    ```
 
-2. In your script, render the component and inject it:
+3. In the same EJS file, render the component and inject it into the placeholder:
    ```js
    window.corejs.view('component/header').then((html) => {
        window.corejs.helper.renderHTML(document.getElementById('Header'), html);
