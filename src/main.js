@@ -10,7 +10,7 @@ window.corejs.helper = helper;
 window.corejs.views = {};
 
 // Load all views
-const templates = import.meta.glob('/src/views/**/*.ejs', { as: 'raw', eager: true });
+const templates = import.meta.glob('/src/views/**/*.ejs', { query: '?raw', import: 'default', eager: true });
 for (const path in templates) {
   // Normalize path, e.g. '/src/views/component/header.ejs' → 'component/header'
   const viewName = path.replace('/src/views/', '').replace('.ejs', '');
