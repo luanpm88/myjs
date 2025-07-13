@@ -21,7 +21,9 @@
 
 <script>
     // Render the header component
-    window.corejs.view('component/header').then((html) => {
+    window.corejs.view('component/header', {
+        subTitle: 'Welcome to MyJS!!',
+    }).then((html) => {
         // Use corejs helper to render HTML with scripts
         window.corejs.helper.renderHTML(document.getElementById('Header'), html);
     });
