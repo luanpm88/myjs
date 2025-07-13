@@ -7,13 +7,21 @@ A simple JS framework for web app front-end.
 ### 0. Install and Run
 
 1. Clone the repository.
+   ```bash
+   git clone https://github.com/luanpm88/myjs
+   cd myjs
+   ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Start the development server to test or develop your application:
    ```bash
    npm run dev
+   ```
+4. For production, run the build command. The output will be ready to deploy in `/dist`:
+   ```bash
+   npm run build
    ```
 
 ---
@@ -86,6 +94,10 @@ A simple JS framework for web app front-end.
       alert('Task added: ' + json.name);
       // Optionally, you can clear the input field after submission
       document.querySelector('input[type="text"]').value = '';
+   }).catch(error => {
+      // Handle any error that occurred
+      console.error('Error adding task:', error);
+      alert('Failed to add task. Please try again.');
    });
    ```
 
@@ -120,8 +132,8 @@ To include a view component dynamically inside your EJS template:
 
 3. In the same EJS file, render the component and inject it into the placeholder:
    ```js
-   window.corejs.view('component/header').then((html) => {
-       window.corejs.helper.renderHTML(document.getElementById('Header'), html);
+   window.corejs.view.render('component/header').then((html) => {
+       window.corejs.helper.updateHTML(document.getElementById('Header'), html);
    });
    ```
 

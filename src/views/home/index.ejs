@@ -2118,14 +2118,14 @@
 
 <script>
     // Render the header component
-    window.corejs.view('component/header').then((html) => {
+    window.corejs.view.render('component/header').then((html) => {
         // Use corejs helper to render HTML with scripts
-        window.corejs.helper.renderHTML(document.getElementById('Header'), html);
+        window.corejs.helper.updateHTML(document.getElementById('Header'), html);
     });
 
     // Render the sidebar component
-    window.corejs.view('component/sidebar').then((html) => {
+    window.corejs.view.render('component/sidebar').then((html) => {
         // Use corejs helper to render HTML with scripts
-        window.corejs.helper.renderHTML(document.getElementById('sidebar'), html);
+        window.corejs.helper.updateHTML(document.getElementById('sidebar'), html);
     });
 </script>

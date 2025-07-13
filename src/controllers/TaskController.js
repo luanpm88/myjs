@@ -1,4 +1,3 @@
-import { view } from '../view.js' // view rendering
 import { TaskService } from '../services/TaskService.js'; // task data service
 
 export var TaskController = class {
@@ -6,7 +5,7 @@ export var TaskController = class {
         try {
             const tasks = await TaskService.getTasks();
 
-            return view('task/index', {
+            return corejs.view.render('task/index', {
                 tasks: tasks,
             });
         } catch (err) {
@@ -15,7 +14,7 @@ export var TaskController = class {
     }
 
     static addForm() {
-        return view('task/addForm');
+        return corejs.view.render('task/addForm');
     }
 
     static async add(request) {

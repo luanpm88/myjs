@@ -41,14 +41,14 @@ export const Router = class {
     // Render the view for the given path
     render(path, container) {
         this.routes[path]?.().then(html => {
-            helper.renderHTML(container, html)
+            helper.updateHTML(container, html)
 
             // @metronic
             helper.metronicInit(); // Initialize Metronic components after rendering
         });
     }
 
-    // Do controller method
+    // Run controller method
     run(path, request = {}) {
         // Call the controller method for the given path
         return this.routes[path]?.(request)
