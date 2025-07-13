@@ -47,7 +47,7 @@ A simple JS framework for web app front-end.
 
 To include a view component dynamically inside your EJS template:
 
-1. Create the component file inside `public/views/component/` and insert the component’s HTML, for example `header.ejs`:
+1. Create the component file inside `src/views/` and insert the component’s HTML, for example `src/views/component/header.ejs`:
    ```html
    <header>
      <h1>App Header</h1>
