@@ -1,5 +1,5 @@
-import { view } from '../view.js'
-import { TaskService } from '../services/TaskService.js';
+import { view } from '../view.js' // view rendering
+import { TaskService } from '../services/TaskService.js'; // task data service
 
 export var TaskController = class {
     static async index() {

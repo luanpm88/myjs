@@ -1,5 +1,6 @@
 import { HomeController } from './controllers/HomeController.js'
 import { TaskController } from './controllers/TaskController.js'
+import { renderHTMLWithScripts } from './helper.js'
 
 export const Router = class {
     constructor() {
@@ -16,43 +17,22 @@ export const Router = class {
         }
     }
 
+    // Load first page on init
     init() {
         const path = window.location.pathname
         this.render(path, corejs.appContainer)
     }
 
+    // Navigate to a specific page
     goToPage(path) {
         window.history.pushState({}, '', path);
         this.render(path, corejs.appContainer)
     }
 
+    // Render the view for the given path
     render(path, container) {
         this.routes[path]?.().then(html => {
             renderHTMLWithScripts(container, html);
         });
     }
-}
-
-//
-function renderHTMLWithScripts(container, html) {
-  // 1. Set HTML content
-  container.innerHTML = html;
-
-  // 2. Find all script tags in the inserted content
-  const scripts = container.querySelectorAll('script');
-
-  scripts.forEach((oldScript) => {
-    const newScript = document.createElement('script');
-    
-    // Copy script attributes (src, type, etc.)
-    [...oldScript.attributes].forEach(attr =>
-      newScript.setAttribute(attr.name, attr.value)
-    );
-    
-    // Copy script content (for inline scripts)
-    newScript.textContent = oldScript.textContent;
-
-    // Replace old script with new one to trigger execution
-    oldScript.parentNode.replaceChild(newScript, oldScript);
-  });
 }

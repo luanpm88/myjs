@@ -36,6 +36,7 @@ A simple JS framework for web app front-end.
 - `src/main.js` - Application entry point
 - `src/router.js` - App Router logic and route registration
 - `src/view.js` - App View core functions
+- `src/helper.js` - Helper functions used throughout the app
 - `src/controllers/` - Controller files (e.g., `home.js`, `tasks.js`)
 - `src/services/` - Service files (e.g., `todo.js`)
 - `src/views/` - EJS view templates (e.g., `home.ejs`, `tasks.ejs`)

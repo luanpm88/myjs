@@ -1,9 +1,8 @@
 import { Router } from './router.js'
-import { view } from './view.js'
 
+// Global corejs functions/objects
 window.corejs = {}
 window.corejs.router = new Router()
-window.corejs.view = view
 window.corejs.appContainer = document.getElementById('app');
 
 document.addEventListener('DOMContentLoaded', () => {
