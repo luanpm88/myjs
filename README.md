@@ -41,33 +41,7 @@ A simple JS framework for web app front-end.
   window.corejs.router.render('/tasks/addForm', document.getElementById('AddTaskModal'));
   ```
 
----
-
-### Using View Components in MyJS
-
-To include a view component dynamically inside your EJS template:
-
-1. Create the component file inside `src/views/` and insert the component’s HTML, for example `src/views/component/header.ejs`:
-   ```html
-   <header>
-     <h1>App Header</h1>
-   </header>
-   ```
-
-2. In any other EJS view where you want to include the header, add a placeholder like this:
-   ```html
-   <div id="Header"></div>
-   ```
-
-3. In the same EJS file, render the component and inject it into the placeholder:
-   ```js
-   window.corejs.view('component/header').then((html) => {
-       window.corejs.helper.renderHTML(document.getElementById('Header'), html);
-   });
-   ```
-
-4. Run a controller action directly with request data:
-
+- **Run a controller action directly with request data:**
    Route defined:
    ```js
    // HTML routes
@@ -101,6 +75,31 @@ To include a view component dynamically inside your EJS template:
            throw new Error('Error adding task: ' + err.message);
        }
    }
+   ```
+
+---
+
+### Using View Components in MyJS
+
+To include a view component dynamically inside your EJS template:
+
+1. Create the component file inside `src/views/` and insert the component’s HTML, for example `src/views/component/header.ejs`:
+   ```html
+   <header>
+     <h1>App Header</h1>
+   </header>
+   ```
+
+2. In any other EJS view where you want to include the header, add a placeholder like this:
+   ```html
+   <div id="Header"></div>
+   ```
+
+3. In the same EJS file, render the component and inject it into the placeholder:
+   ```js
+   window.corejs.view('component/header').then((html) => {
+       window.corejs.helper.renderHTML(document.getElementById('Header'), html);
+   });
    ```
 
 ---
