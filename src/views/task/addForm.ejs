@@ -1,3 +1,22 @@
-<label for="">Task Name:</label>
-<input type="text" name="" id="">
-<button type="submit">Add Task</button>
+<form action="">
+    <label for="">Task Name:</label>
+    <input type="text" name="" id="">
+    <button type="submit">Add Task</button>
+</form>
+
+<script>
+    // Form submission handling
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const taskName = document.querySelector('input[type="text"]').value;
+        if (taskName) {
+            // Here you would typically send the taskName to your server
+            console.log('Task added:', taskName);
+            alert('Task added: ' + taskName);
+            // Optionally, you can clear the input field after submission
+            document.querySelector('input[type="text"]').value = '';
+        } else {
+            alert('Please enter a task name.');
+        }
+    });
+</script>

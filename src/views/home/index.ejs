@@ -22,12 +22,14 @@
 <script>
     // Render the header component
     window.corejs.view('component/header').then((html) => {
-        document.getElementById('Header').innerHTML = html;
+        // Use corejs helper to render HTML with scripts
+        window.corejs.helper.renderHTML(document.getElementById('Header'), html);
     });
 
     // Render the footer component
     window.corejs.view('component/footer').then((html) => {
-        document.getElementById('Footer').innerHTML = html;
+        // Use corejs helper to render HTML with scripts
+        window.corejs.helper.renderHTML(document.getElementById('Footer'), html);
     });
 
     // Click Add Task button to load the task form dynamically

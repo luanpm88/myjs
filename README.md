@@ -55,7 +55,7 @@ To include a view component dynamically inside your EJS template:
 2. In your script, render the component and inject it:
    ```js
    window.corejs.view('component/header').then((html) => {
-       document.getElementById('Header').innerHTML = html;
+       window.corejs.helper.renderHTML(document.getElementById('Header'), html);
    });
    ```
 

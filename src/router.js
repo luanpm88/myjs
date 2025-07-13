@@ -1,6 +1,6 @@
 import { HomeController } from './controllers/HomeController.js'
 import { TaskController } from './controllers/TaskController.js'
-import { renderHTMLWithScripts } from './helper.js'
+import { helper } from './helper.js'
 
 export const Router = class {
     constructor(appContainer) {
@@ -35,7 +35,7 @@ export const Router = class {
     // Render the view for the given path
     render(path, container) {
         this.routes[path]?.().then(html => {
-            renderHTMLWithScripts(container, html);
+            helper.renderHTML(container, html);
         });
     }
 }
