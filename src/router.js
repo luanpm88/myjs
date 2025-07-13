@@ -8,6 +8,7 @@ export const Router = class {
 
         // Define routes and their corresponding controller methods
         this.routes = {
+            // HTML routes
             '/': () => {
                 return HomeController.index();
             },
@@ -16,6 +17,11 @@ export const Router = class {
             },
             '/tasks/add-form': () => {
                 return TaskController.addForm();
+            },
+
+            // JSON routes
+            '/tasks/add': (request) => {
+                return TaskController.add(request);
             },
         }
     }
@@ -35,7 +41,13 @@ export const Router = class {
     // Render the view for the given path
     render(path, container) {
         this.routes[path]?.().then(html => {
-            helper.renderHTML(container, html);
+            helper.renderHTML(container, html)
         });
+    }
+
+    // Do controller method
+    run(path, request = {}) {
+        // Call the controller method for the given path
+        return this.routes[path]?.(request)
     }
 }

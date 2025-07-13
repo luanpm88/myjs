@@ -10,12 +10,19 @@ export var TaskController = class {
                 tasks: tasks,
             });
         } catch (err) {
-            console.error('Error loading tasks:', err);
-            return view('error', { message: 'Could not load tasks' });
+            throw new Error('Error fetching tasks: ' + err.message);
         }
     }
 
     static addForm() {
         return view('task/addForm');
+    }
+
+    static async add(request) {
+        try {
+            return await TaskService.addTask(request);
+        } catch (err) {
+            throw new Error('Error adding task: ' + err.message);
+        }
     }
 }
