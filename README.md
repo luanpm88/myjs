@@ -26,7 +26,7 @@ A simple JS framework for web app front-end.
   ```
 - **Render a route into a specific container:**
   ```js
-  window.corejs.router.render('/tasks', document.getElementById('main'));
+  window.corejs.router.render('/tasks/addForm', document.getElementById('AddTaskModal'));
   ```
 
 ---
