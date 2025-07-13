@@ -27,3 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
     corejs.router.goToPage(window.location.pathname); // re-render the view
   });
 })
+
+console.log('API:', import.meta.env.VITE_API_URL);
