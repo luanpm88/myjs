@@ -1,8 +1,10 @@
 import { Router } from './router.js'
+import { view } from './view.js'
 
 // Global corejs functions/objects
 window.corejs = {}
 window.corejs.router = new Router(document.getElementById('app'))
+window.corejs.view = view;
 
 document.addEventListener('DOMContentLoaded', () => {
   // On first load

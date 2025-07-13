@@ -1,3 +1,5 @@
+<div id="Header"></div>
+
 <ul>
     <li>
         <a href="javascript:;" onclick="corejs.router.goToPage('/')">Home</a>
@@ -15,9 +17,20 @@
     <button id="loadTasksBtn">+ Add Task</button>
 </div>
 
-
+<div id="Footer"></div>
 
 <script>
+    // Render the header component
+    window.corejs.view('component/header').then((html) => {
+        document.getElementById('Header').innerHTML = html;
+    });
+
+    // Render the footer component
+    window.corejs.view('component/footer').then((html) => {
+        document.getElementById('Footer').innerHTML = html;
+    });
+
+    // Click Add Task button to load the task form dynamically
     var loadButton = document.getElementById('loadTasksBtn');
     var tasksContainer = document.getElementById('DynamicTestBox');
 

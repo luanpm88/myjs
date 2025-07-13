@@ -18,6 +18,18 @@ A simple JS framework for web app front-end.
 
 ---
 
+## Project Structure
+
+- `src/main.js` - Application entry point
+- `src/router.js` - App Router logic and route registration
+- `src/view.js` - App View core functions
+- `src/helper.js` - Helper functions used throughout the app
+- `src/controllers/` - Controller files (e.g., `HomeController.js`, `TaskController.js`)
+- `src/services/` - Service files (e.g., `TaskService.js`)
+- `src/views/` - EJS view templates (e.g., `home/index.ejs`, `task/addForm.ejs`)
+
+---
+
 ### Using the Router
 
 - **Navigate to a full page route:**
@@ -31,15 +43,21 @@ A simple JS framework for web app front-end.
 
 ---
 
-## Project Structure
+### Using View Components in MyJS
 
-- `src/main.js` - Application entry point
-- `src/router.js` - App Router logic and route registration
-- `src/view.js` - App View core functions
-- `src/helper.js` - Helper functions used throughout the app
-- `src/controllers/` - Controller files (e.g., `HomeController.js`, `TaskController.js`)
-- `src/services/` - Service files (e.g., `TaskService.js`)
-- `src/views/` - EJS view templates (e.g., `home/index.ejs`, `task/addForm.ejs`)
+To include a view component dynamically inside your EJS template:
+
+1. Add a placeholder in your EJS file:
+   ```html
+   <div id="Header"></div>
+   ```
+
+2. In your script, render the component and inject it:
+   ```js
+   window.corejs.view('component/header').then((html) => {
+       document.getElementById('Header').innerHTML = html;
+   });
+   ```
 
 ---
 
