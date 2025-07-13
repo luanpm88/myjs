@@ -66,6 +66,22 @@ To include a view component dynamically inside your EJS template:
    });
    ```
 
+4. Run a controller action directly with request data:
+
+   For example, to add a task:
+   ```js
+   // Add a task using the controller action
+   corejs.router.run('/tasks/add', {
+       name: taskName
+   }).then(json => {
+       // Here you would typically send the taskName to your server
+       console.log('Task added:', json);
+       alert('Task added: ' + json.name);
+       // Optionally, you can clear the input field after submission
+       document.querySelector('input[type="text"]').value = '';
+   });
+   ```
+
 ---
 
 ## Reference
