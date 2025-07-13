@@ -1,4 +1,4 @@
-# Todo App
+# Introduction
 
 A simple JS framework for web app front-end.
 
