@@ -68,6 +68,16 @@ To include a view component dynamically inside your EJS template:
 
 4. Run a controller action directly with request data:
 
+   Route defined:
+   ```js
+   // HTML routes
+   // ...
+   // JSON routes
+   '/tasks/add': (request) => {
+       return TaskController.add(request);
+   },
+   ```
+
    For example, to add a task:
    ```js
    // Add a task using the controller action
@@ -80,6 +90,17 @@ To include a view component dynamically inside your EJS template:
        // Optionally, you can clear the input field after submission
        document.querySelector('input[type="text"]').value = '';
    });
+   ```
+
+   Controller code looks like:
+   ```js
+   static async add(request) {
+       try {
+           return await TaskService.addTask(request);
+       } catch (err) {
+           throw new Error('Error adding task: ' + err.message);
+       }
+   }
    ```
 
 ---
