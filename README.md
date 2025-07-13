@@ -32,14 +32,36 @@ A simple JS framework for web app front-end.
 
 ### Using the Router
 
+- **Add routes should be defined in `/src/router.js`:**
+   ```js
+   // Define routes and their corresponding controller methods
+   this.routes = {
+      // HTML routes
+      '/': () => {
+         return HomeController.index();
+      },
+      '/tasks': () => {
+         return TaskController.index();
+      },
+      '/tasks/add-form': () => {
+         return TaskController.addForm();
+      },
+
+      // JSON routes
+      '/tasks/add': (request) => {
+         return TaskController.add(request);
+      },
+   }
+   ```
+
 - **Navigate to a full page route:**
-  ```js
-  window.corejs.router.goToPage('/tasks');
-  ```
+   ```js
+   window.corejs.router.goToPage('/tasks');
+   ```
 - **Render a route into a specific container:**
-  ```js
-  window.corejs.router.render('/tasks/addForm', document.getElementById('AddTaskModal'));
-  ```
+   ```js
+   window.corejs.router.render('/tasks/addForm', document.getElementById('AddTaskModal'));
+   ```
 
 - **Run a controller action directly with request data:**
 
@@ -57,13 +79,13 @@ A simple JS framework for web app front-end.
    ```js
    // Here is how typically executing add task via router
    corejs.router.run('/tasks/add', {
-         name: taskName
+      name: taskName
    }).then( json => {
-         // Successful response handling
-         console.log('Task added:', json);
-         alert('Task added: ' + json.name);
-         // Optionally, you can clear the input field after submission
-         document.querySelector('input[type="text"]').value = '';
+      // Successful response handling
+      console.log('Task added:', json);
+      alert('Task added: ' + json.name);
+      // Optionally, you can clear the input field after submission
+      document.querySelector('input[type="text"]').value = '';
    });
    ```
 
