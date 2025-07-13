@@ -7,13 +7,21 @@ A simple JS framework for web app front-end.
 ### 0. Install and Run
 
 1. Clone the repository.
+   ```bash
+   git clone https://github.com/luanpm88/myjs
+   cd myjs
+   ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Start the development server to test or develop your application:
    ```bash
    npm run dev
+   ```
+4. For production, run the build command. The output will be ready to deploy in `/dist`:
+   ```bash
+   npm run build
    ```
 
 ---
