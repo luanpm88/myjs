@@ -1,21 +1,12 @@
 import { Router } from './router.js'
-import { view } from './view.js'
+import { View } from './view.js'
 import { helper } from './helper.js'
 
 // Global corejs functions/objects
 window.corejs = {}
 window.corejs.router = null;
-window.corejs.view = view;
+window.corejs.view = new View();
 window.corejs.helper = helper;
-window.corejs.views = {};
-
-// Load all views
-const templates = import.meta.glob('/src/views/**/*.ejs', { query: '?raw', import: 'default', eager: true });
-for (const path in templates) {
-  // Normalize path, e.g. '/src/views/component/header.ejs' → 'component/header'
-  const viewName = path.replace('/src/views/', '').replace('.ejs', '');
-  window.corejs.views[viewName] = templates[path];
-}
 
 // Initialize the router and set up event listeners
 document.addEventListener('DOMContentLoaded', () => {

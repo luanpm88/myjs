@@ -1,6 +1,6 @@
 //
 export const helper = {
-  renderHTML: (container, html) => {
+  updateHTML: (container, html) => {
     // 1. Set HTML content
     container.innerHTML = html;
 

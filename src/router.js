@@ -41,7 +41,7 @@ export const Router = class {
     // Render the view for the given path
     render(path, container) {
         this.routes[path]?.().then(html => {
-            helper.renderHTML(container, html)
+            helper.updateHTML(container, html)
         });
     }
 
