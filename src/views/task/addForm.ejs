@@ -10,12 +10,11 @@
         event.preventDefault(); // Prevent default form submission
         const taskName = document.querySelector('input[name="name"]').value;
         if (taskName) {
-
-            // So add task
+            // Here is how typically executing add task via router
             corejs.router.run('/tasks/add', {
                 name: taskName
             }).then( json => {
-                // Here you would typically send the taskName to your server
+                // Successful response handling
                 console.log('Task added:', json);
                 alert('Task added: ' + json.name);
                 // Optionally, you can clear the input field after submission

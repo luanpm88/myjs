@@ -55,15 +55,15 @@ A simple JS framework for web app front-end.
 
    For example, to add a task:
    ```js
-   // Add a task using the controller action
+   // Here is how typically executing add task via router
    corejs.router.run('/tasks/add', {
-       name: taskName
-   }).then(json => {
-       // Here you would typically send the taskName to your server
-       console.log('Task added:', json);
-       alert('Task added: ' + json.name);
-       // Optionally, you can clear the input field after submission
-       document.querySelector('input[type="text"]').value = '';
+         name: taskName
+   }).then( json => {
+         // Successful response handling
+         console.log('Task added:', json);
+         alert('Task added: ' + json.name);
+         // Optionally, you can clear the input field after submission
+         document.querySelector('input[type="text"]').value = '';
    });
    ```
 
