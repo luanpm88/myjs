@@ -94,6 +94,10 @@ A simple JS framework for web app front-end.
       alert('Task added: ' + json.name);
       // Optionally, you can clear the input field after submission
       document.querySelector('input[type="text"]').value = '';
+   }).catch(error => {
+      // Handle any error that occurred
+      console.error('Error adding task:', error);
+      alert('Failed to add task. Please try again.');
    });
    ```
 
