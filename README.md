@@ -26,7 +26,7 @@ A simple JS framework for web app front-end.
 - `src/helper.js` - Helper functions used throughout the app
 - `src/controllers/` - Controller files (e.g., `HomeController.js`, `TaskController.js`)
 - `src/services/` - Service files (e.g., `TaskService.js`)
-- `src/views/` - EJS view templates (e.g., `home/index.ejs`, `task/addForm.ejs`)
+- `public/views/` - EJS view templates (e.g., `home/index.ejs`, `task/addForm.ejs`)
 
 ---
 
