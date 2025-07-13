@@ -36,6 +36,9 @@ export const Router = class {
     render(path, container) {
         this.routes[path]?.().then(html => {
             helper.renderHTML(container, html);
+
+            // @metronic
+            helper.metronicInit(); // Initialize Metronic components after rendering
         });
     }
 }
