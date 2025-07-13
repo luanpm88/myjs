@@ -4,7 +4,7 @@ import { helper } from './helper.js'
 
 // Global corejs functions/objects
 window.corejs = {}
-window.corejs.router = new Router(document.getElementById('app'))
+window.corejs.router = null;
 window.corejs.view = view;
 window.corejs.helper = helper;
 window.corejs.views = {};
@@ -19,6 +19,9 @@ for (const path in templates) {
 
 // Initialize the router and set up event listeners
 document.addEventListener('DOMContentLoaded', () => {
+  // Create a new Router instance with the app container
+  window.corejs.router = new Router(document.getElementById('app'))
+
   // On first load
   corejs.router.init();
 

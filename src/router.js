@@ -45,7 +45,7 @@ export const Router = class {
         });
     }
 
-    // Do controller method
+    // Run controller method
     run(path, request = {}) {
         // Call the controller method for the given path
         return this.routes[path]?.(request)
