@@ -2,8 +2,7 @@ import { Router } from './router.js'
 
 // Global corejs functions/objects
 window.corejs = {}
-window.corejs.router = new Router()
-window.corejs.appContainer = document.getElementById('app');
+window.corejs.router = new Router(document.getElementById('app'))
 
 document.addEventListener('DOMContentLoaded', () => {
   // On first load

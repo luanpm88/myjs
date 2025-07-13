@@ -3,7 +3,10 @@ import { TaskController } from './controllers/TaskController.js'
 import { renderHTMLWithScripts } from './helper.js'
 
 export const Router = class {
-    constructor() {
+    constructor(appContainer) {
+        this.appContainer = appContainer;
+
+        // Define routes and their corresponding controller methods
         this.routes = {
             '/': () => {
                 return HomeController.index();
@@ -20,13 +23,13 @@ export const Router = class {
     // Load first page on init
     init() {
         const path = window.location.pathname
-        this.render(path, corejs.appContainer)
+        this.render(path, this.appContainer)
     }
 
     // Navigate to a specific page
     goToPage(path) {
         window.history.pushState({}, '', path);
-        this.render(path, corejs.appContainer)
+        this.render(path, this.appContainer)
     }
 
     // Render the view for the given path
