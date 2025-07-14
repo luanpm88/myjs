@@ -139,6 +139,66 @@ To include a view component dynamically inside your EJS template:
 
 ---
 
+## 📦 `storage.js` – LocalStorage Helper
+
+A lightweight utility to simplify `localStorage` operations with built-in JSON handling and error checking.
+
+---
+
+### ✅ Methods
+
+#### `corejs.storage.set(key, value)`
+Stores a value in `localStorage` under the specified `key`.  
+Automatically stringifies objects or arrays.
+
+```js
+corejs.storage.set('api_token', 'your_api_token_here');
+corejs.storage.set('user', { id: 1, name: 'Luan', email: 'luan@example.com' });
+```
+
+---
+
+#### `corejs.storage.get(key, defaultValue = null)`
+Retrieves a value by key and parses it from JSON.  
+Returns `defaultValue` if the key does not exist or parsing fails.
+
+```js
+const token = corejs.storage.get('api_token', '');
+const user = corejs.storage.get('user', null);
+```
+
+---
+
+#### `corejs.storage.remove(key)`
+Removes the item associated with the given key.
+
+```js
+corejs.storage.remove('api_token');
+corejs.storage.remove('user');
+```
+
+---
+
+#### `corejs.storage.clear()`
+Clears all keys from `localStorage`.
+
+```js
+corejs.storage.clear();
+```
+
+---
+
+#### `corejs.storage.has(key)`
+Returns `true` if the key exists in `localStorage`.
+
+```js
+if (corejs.storage.has('api_token')) {
+  console.log('User is authenticated');
+}
+```
+
+---
+
 ## Reference
 
 Please refer to the current sample code in the repository for understanding how it works. The sample code itself provides a simple and clear example of usage.
