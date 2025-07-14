@@ -133,7 +133,7 @@ To include a view component dynamically inside your EJS template:
 3. In the same EJS file, render the component and inject it into the placeholder:
    ```js
    window.corejs.view.render('component/header').then((html) => {
-       window.corejs.helper.updateHTML(document.getElementById('Header'), html);
+       window.corejs.helper.innerHTML(document.getElementById('Header'), html);
    });
    ```
 

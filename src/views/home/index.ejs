@@ -24,14 +24,14 @@
     window.corejs.view.render('component/header', {
         subTitle: 'Welcome to MyJS!!',
     }).then((html) => {
-        // Use corejs helper to render HTML with scripts
-        window.corejs.helper.updateHTML(document.getElementById('Header'), html);
+        // Use corejs helper to render HTML into the element
+        window.corejs.helper.innerHTML(document.getElementById('Header'), html);
     });
 
     // Render the footer component
     window.corejs.view.render('component/footer').then((html) => {
-        // Use corejs helper to render HTML with scripts
-        window.corejs.helper.updateHTML(document.getElementById('Footer'), html);
+        // Use corejs helper to render HTML into the element
+        window.corejs.helper.innerHTML(document.getElementById('Footer'), html);
     });
 
     // Click Add Task button to load the task form dynamically
