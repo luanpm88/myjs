@@ -139,7 +139,7 @@ To include a view component dynamically inside your EJS template:
 
 ---
 
-## 📦 `storage.js` – LocalStorage Helper
+## 📦 `corejs.storage` – LocalStorage Helper
 
 A lightweight utility to simplify `localStorage` operations with built-in JSON handling and error checking.
 
@@ -196,6 +196,109 @@ if (corejs.storage.has('api_token')) {
   console.log('User is authenticated');
 }
 ```
+
+---
+## 🔐 `corejs.auth` – Authentication Helper
+
+A simple wrapper around `Auth.js` to manage user login state, API token, and user info.  
+Follows best practices for handling localStorage and authentication on the frontend.
+
+---
+
+### ✅ Methods
+
+#### `corejs.auth.login({ token, user })`
+Stores the user's API token and user information into localStorage.
+
+```js
+corejs.auth.login({
+  token: response.token,
+  user: response.user // { id, name, email, role, ... }
+});
+```
+
+---
+
+#### `corejs.auth.logout()`
+Clears both token and user data from localStorage.
+
+```js
+corejs.auth.logout();
+```
+
+---
+
+#### `corejs.auth.check()`
+Returns `true` if the user is logged in (i.e., token exists).
+
+```js
+if (corejs.auth.check()) {
+  console.log('User is logged in');
+}
+```
+
+---
+
+#### `corejs.auth.getToken()`
+Returns the stored API token as a string, or `''` if not found.
+
+```js
+const token = corejs.auth.getToken();
+```
+
+---
+
+#### `corejs.auth.getUser()`
+Returns the stored user object or `null` if not available.
+
+```js
+const user = corejs.auth.getUser();
+console.log(user?.name);
+```
+
+---
+
+#### `corejs.auth.isAdmin()`
+Returns `true` if the user's role is `'admin'`.  
+(You can customize this method to fit your user role logic.)
+
+```js
+if (corejs.auth.isAdmin()) {
+  console.log('User is admin');
+}
+```
+
+---
+
+### 📁 Example Usage
+
+```js
+// ✅ Login
+corejs.auth.login({
+  token: 'abc123xyz',
+  user: { id: 1, name: 'Luan', email: 'luan@example.com', role: 'admin' }
+});
+
+// ✅ Check login status
+if (corejs.auth.check()) {
+  const user = corejs.auth.getUser();
+  console.log(`Hello, ${user.name}`);
+}
+
+// ✅ Use token in API call
+fetch('/api/profile', {
+  headers: {
+    Authorization: `Bearer ${corejs.auth.getToken()}`
+  }
+});
+
+// ✅ Logout
+corejs.auth.logout();
+```
+
+---
+
+> ⚠️ **Security Tip:** Avoid storing sensitive data like passwords or full tokens in localStorage. Use short-lived tokens and HTTPS, and consider storing tokens in HTTP-only cookies for sensitive apps.
 
 ---
 

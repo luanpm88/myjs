@@ -2,6 +2,7 @@ import { Router } from './router.js'
 import { View } from './view.js'
 import { helper } from './helper.js'
 import { Storage } from './storage.js'
+import { Auth } from './auth.js'
 
 // Initialize the router and set up event listeners
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.corejs.view = new View();
   window.corejs.helper = helper;
   window.corejs.storage = new Storage();
+  window.corejs.auth = new Auth();
 
   // On first load
   corejs.router.init();
