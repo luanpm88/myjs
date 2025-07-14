@@ -6,8 +6,7 @@ export const View = class {
     this.views = {};
 
     // Load all views
-    // This will import all .ejs files in the /src/views directory
-    // and make them available in window.corejs.views
+    // This will import all .ejs files in the /src/views directory intro views array
     const templates = import.meta.glob('/src/views/**/*.ejs', { query: '?raw', import: 'default', eager: true });
     for (const path in templates) {
       // Normalize path, e.g. '/src/views/component/header.ejs' → 'component/header'
