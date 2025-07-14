@@ -21,8 +21,8 @@ export const View = class {
   {
     //
     if (!this.views[viewName]) {
-        alert(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs`);
-        throw new Error(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs`);
+        alert(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs and it is not empty.`);
+        throw new Error(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs and it is not empty.`);
     }
 
     return ejs.render(this.views[viewName], params);
