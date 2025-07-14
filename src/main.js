@@ -2,16 +2,13 @@ import { Router } from './router.js'
 import { View } from './view.js'
 import { helper } from './helper.js'
 
-// Global corejs functions/objects
-window.corejs = {}
-window.corejs.router = null;
-window.corejs.view = new View();
-window.corejs.helper = helper;
-
 // Initialize the router and set up event listeners
 document.addEventListener('DOMContentLoaded', () => {
-  // Create a new Router instance with the app container
-  window.corejs.router = new Router(document.getElementById('app'))
+  // Global corejs functions/objects
+  window.corejs = {}
+  window.corejs.router = new Router(document.getElementById('app'));
+  window.corejs.view = new View();
+  window.corejs.helper = helper;
 
   // On first load
   corejs.router.init();
