@@ -1,5 +1,6 @@
 import { HomeController } from './controllers/HomeController.js'
 import { TaskController } from './controllers/TaskController.js'
+import { LoginController } from './controllers/LoginController.js'
 import { helper } from './helper.js'
 
 export const Router = class {
@@ -17,6 +18,9 @@ export const Router = class {
             },
             '/tasks/add-form': () => {
                 return TaskController.addForm();
+            },
+            '/login': () => {
+                return LoginController.index();
             },
 
             // JSON routes
