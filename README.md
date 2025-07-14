@@ -258,18 +258,6 @@ console.log(user?.name);
 
 ---
 
-#### `corejs.auth.isAdmin()`
-Returns `true` if the user's role is `'admin'`.  
-(You can customize this method to fit your user role logic.)
-
-```js
-if (corejs.auth.isAdmin()) {
-  console.log('User is admin');
-}
-```
-
----
-
 ### 📁 Example Usage
 
 ```js
