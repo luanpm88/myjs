@@ -19,6 +19,12 @@ export const View = class {
   // Render a view with parameters
   async render(viewName, params = {})
   {
+    //
+    if (!this.views[viewName]) {
+        alert(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs`);
+        throw new Error(`View not found: ${viewName}. Make sure the view file is added in the src/views/${viewName}.ejs`);
+    }
+
     return ejs.render(this.views[viewName], params);
   }
 }
