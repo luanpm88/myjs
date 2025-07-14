@@ -2,7 +2,7 @@
 export const helper = {
   // Update the HTML of a container
   // Besides updating innerHTML, this method also handles <script> tags.
-  updateHTML: (container, html) => {
+  innerHTML: (container, html) => {
     // 1. Set HTML content
     container.innerHTML = html;
 

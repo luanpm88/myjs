@@ -2677,13 +2677,13 @@
 <script>
     // Render the header component
     window.corejs.view.render('component/header').then((html) => {
-        // Use corejs helper to render HTML with scripts
-        window.corejs.helper.updateHTML(document.getElementById('Header'), html);
+        // Use corejs helper to render HTML into the element
+        window.corejs.helper.innerHTML(document.getElementById('Header'), html);
     });
 
     // Render the sidebar component
     window.corejs.view.render('component/sidebar').then((html) => {
-        // Use corejs helper to render HTML with scripts
-        window.corejs.helper.updateHTML(document.getElementById('sidebar'), html);
+        // Use corejs helper to render HTML into the element
+        window.corejs.helper.innerHTML(document.getElementById('sidebar'), html);
     });
 </script>
