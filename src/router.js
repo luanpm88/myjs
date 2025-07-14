@@ -1,6 +1,5 @@
 import { HomeController } from './controllers/HomeController.js'
 import { TaskController } from './controllers/TaskController.js'
-import { TestController } from './controllers/TestController.js'
 import { helper } from './helper.js'
 
 export const Router = class {
