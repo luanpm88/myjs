@@ -30,11 +30,22 @@ export const Router = class {
     // Load first page on init
     init() {
         const path = window.location.pathname
-        this.render(path, this.appContainer)
+        this.goToPage(path); // Default to home if path is root
     }
 
     // Navigate to a specific page
     goToPage(path) {
+        // 404 page handling
+        // if (!this.routes[path]) {
+        //     window.corejs.view.render('404', {
+        //         'error': `Route not found: ${path}. Make sure the path is defined in the src/router.js.`
+        //     }).then(html => {
+        //         helper.innerHTML(this.appContainer, html);
+        //     });
+        //     return;
+        // }
+
+        // Update history state
         window.history.pushState({}, '', path);
         this.render(path, this.appContainer)
     }
